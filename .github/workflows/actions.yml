@@ -27,7 +27,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Switch to non-root user
-      run: sudo -u gitaction bash -c 'cd $GITHUB_WORKSPACE'
+      run: sudo -u gitaction bash -c 'cd /home/ubuntu/actions-runner'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
