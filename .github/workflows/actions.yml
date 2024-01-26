@@ -26,8 +26,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Switch to non-root user and Build with Maven
-      run: sudo -u gitaction bash -c 'cd /home/ubuntu/actions-runner && mvn -B package --file pom.xml'
+    - name: Switch to root user and Build with Maven
+      run: sudo su -
+    - name: change directory and Build with Maven
+      run: 'cd /opt/maven/apache-maven-3.8.8/bin && mvn -B package --file pom.xml'
     
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
